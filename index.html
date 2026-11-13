@@ -6,12 +6,12 @@
   <title>레빈기획 | Levin Production</title>
   <style>
     :root {
-      --bg-color: #0e0e10;
-      --card-bg: #18181c;
+      --bg-color: #050507;
+      --card-bg: #121216;
       --text-main: #f4f4f6;
       --text-sub: #a0a0ab;
-      --accent: #c8a96e;
-      --border: #2a2a32;
+      --accent: #d4af37;
+      --border: #24242c;
     }
 
     * {
@@ -32,7 +32,7 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(14, 14, 16, 0.88);
+      background: rgba(5, 5, 7, 0.85);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
       z-index: 100;
@@ -72,41 +72,58 @@
     }
 
     .hero {
-      min-height: 85vh;
+      min-height: 92vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 120px 24px 80px;
-      background: radial-gradient(circle at top, #1f1c16 0%, var(--bg-color) 65%);
+      padding: 110px 24px 70px;
+      background-color: #000000;
+    }
+
+    .logo-video-wrap {
+      width: 100%;
+      max-width: 360px;
+      margin-bottom: 24px;
+      border-radius: 12px;
+      overflow: hidden;
+      /* 영상 테두리가 배경과 자연스럽게 스며들도록 처리 */
+      box-shadow: 0 0 50px rgba(212, 175, 55, 0.08);
+    }
+
+    .logo-video-wrap video {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
     }
 
     .hero-subtitle {
       color: var(--accent);
-      font-size: 0.9rem;
-      letter-spacing: 0.2em;
+      font-size: 0.85rem;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
 
     .hero h1 {
-      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-size: clamp(1.9rem, 4.5vw, 3rem);
       font-weight: 700;
       letter-spacing: -0.02em;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .hero p {
-      max-width: 620px;
+      max-width: 580px;
       color: var(--text-sub);
-      font-size: 1.1rem;
-      margin-bottom: 36px;
+      font-size: 1.05rem;
+      margin-bottom: 34px;
     }
 
     .btn {
       display: inline-block;
-      padding: 14px 32px;
+      padding: 13px 30px;
       border: 1px solid var(--accent);
       color: var(--accent);
       text-decoration: none;
@@ -117,7 +134,7 @@
 
     .btn:hover {
       background-color: var(--accent);
-      color: var(--bg-color);
+      color: #000000;
       font-weight: 600;
     }
 
@@ -191,6 +208,9 @@
     }
 
     @media (max-width: 600px) {
+      .logo-video-wrap {
+        max-width: 280px;
+      }
       nav a {
         margin-left: 14px;
         font-size: 0.85rem;
@@ -213,6 +233,9 @@
 
   <main>
     <div class="hero">
+      <div class="logo-video-wrap">
+        <video src="logo-motion.mp4" autoplay muted playsinline></video>
+      </div>
       <div class="hero-subtitle">Classical Music & Arts Management</div>
       <h1>레빈기획 (Levin Production)</h1>
       <p>깊이 있는 예술적 통찰과 정교한 무대 기획으로 클래식 음악의 새로운 울림을 만듭니다.</p>
