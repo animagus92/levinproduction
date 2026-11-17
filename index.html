@@ -483,6 +483,29 @@
      <p>이메일 <a href="mailto:contact@levinproduction.kr" style="color: var(--text-sub); text-decoration: none;">contact@levinproduction.kr</a> | 계좌번호 신한은행 110-479-286560 (레빈기획)</p>
      <p style="margin-top: 8px;">© 2026 Levin Production. All rights reserved.</p>
     </footer>
+<script>
+    const menuBtn = document.getElementById('menuBtn');
+    const dropdownNav = document.getElementById('dropdownNav');
 
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menuBtn.classList.toggle('active');
+      dropdownNav.classList.toggle('open');
+    });
+
+    dropdownNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuBtn.classList.remove('active');
+        dropdownNav.classList.remove('open');
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!menuBtn.contains(e.target) && !dropdownNav.contains(e.target)) {
+        menuBtn.classList.remove('active');
+        dropdownNav.classList.remove('open');
+      }
+    });
+  </script>
 </body>
 </html>
