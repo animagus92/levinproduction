@@ -279,17 +279,24 @@
   </style>
 </head>
 <body>
-  <header>
+
+<header>
     <div class="nav-container">
       <a href="/" class="logo">LEVIN <span>PRODUCTION</span></a>
-      <nav>
-        <a href="/#about">소개</a>
-        <a href="/#projects">주요 활동</a>
-        <a href="/contact" class="active">문의</a>
-      </nav>
+      <div class="menu-wrapper">
+        <button class="hamburger-btn" id="menuBtn" aria-label="메뉴 열기">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="dropdown-nav" id="dropdownNav">
+          <a href="/#about">소개</a>
+          <a href="/#projects">주요 활동</a>
+          <a href="/contact" class="active">문의</a>
+        </nav>
+      </div>
     </div>
   </header>
-
   <main>
     <div class="page-tag">Contact & Inquiry</div>
     <h1>공연 · 협업 문의하기</h1>
