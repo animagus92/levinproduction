@@ -382,5 +382,29 @@
       window.location.href = `mailto:contact@levinproduction.kr?subject=${subject}&body=${body}`;
     }
   </script>
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const dropdownNav = document.getElementById('dropdownNav');
+
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menuBtn.classList.toggle('active');
+      dropdownNav.classList.toggle('open');
+    });
+
+    dropdownNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuBtn.classList.remove('active');
+        dropdownNav.classList.remove('open');
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!menuBtn.contains(e.target) && !dropdownNav.contains(e.target)) {
+        menuBtn.classList.remove('active');
+        dropdownNav.classList.remove('open');
+      }
+    });
+  </script>
 </body>
 </html>
