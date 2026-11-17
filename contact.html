@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>문의하기 | 레빈기획 Levin Production</title>
+  <link rel="icon" type="image/png" href="Logo-pic-only.png">
+  <link rel="apple-touch-icon" href="Logo-pic-only.png">
+  <style>
+    :root {
+      --bg-color: #050507;
+      --card-bg: #121216;
+      --text-main: #f4f4f6;
+      --text-sub: #a0a0ab;
+      --accent: #d4af37;
+      --border: #24242c;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.6;
+      word-break: keep-all;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(5, 5, 7, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--text-main);
+      text-decoration: none;
+    }
+    .logo span { color: var(--accent); }
+    nav a {
+      color: var(--text-sub);
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    nav a:hover, nav a.active { color: var(--accent); }
+
+    main {
+      flex: 1;
+      max-width: 760px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 140px 24px 90px;
+    }
+    .page-tag {
+      color: var(--accent);
+      font-size: 0.82rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    h1 {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .page-desc {
+      color: var(--text-sub);
+      margin-bottom: 40px;
+      font-size: 1rem;
+    }
+
+    .contact-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 36px 32px;
+    }
+    .form-group {
+      margin-bottom: 22px;
+    }
+    label {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    input, select, textarea {
+      width: 100%;
+      background-color: #09090c;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 13px 16px;
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: border-color 0.2s;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    .btn-submit {
+      width: 100%;
+      padding: 15px 24px;
+      background-color: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .btn-submit:hover {
+      background-color: var(--accent);
+      color: #000000;
+    }
+
+    .direct-info {
+      margin-top: 32px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .info-item span {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+    .info-item p, .info-item a {
+      color: var(--text-sub);
+      font-size: 0.92rem;
+      text-decoration: none;
+    }
+    .info-item a:hover { color: var(--text-main); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 24px;
+      text-align: center;
+      color: var(--text-sub);
+      font-size: 0.85rem;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-sub);
+      text-decoration: none;
+      font-size: 0.88rem;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      transition: all 0.25s ease;
+    }
+    .social-links a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .social-links svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+    .footer-info {
+      line-height: 1.8;
+    }
+    .footer-info a {
+      color: var(--text-sub);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-info a:hover {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <a href="/" class="logo">LEVIN <span>PRODUCTION</span></a>
+      <nav>
+        <a href="/#about">소개</a>
+        <a href="/#projects">주요 활동</a>
+        <a href="/contact" class="active">문의</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-tag">Contact & Inquiry</div>
+    <h1>공연 · 협업 문의하기</h1>
+    <p class="page-desc">공연 기획, 아티스트 섭외, 티켓 예매 및 기타 협업 관련 문의를 남겨주시면 확인 후 신속히 답변드리겠습니다.</p>
+
+    <div class="contact-card">
+      <form id="contactForm" onsubmit="sendMail(event)">
+        <div class="form-group">
+          <label for="category">문의 유형</label>
+          <select id="category" name="category">
+            <option value="공연 기획 및 제작 문의">공연 기획 및 제작 문의</option>
+            <option value="연주자 섭외 · 출연 문의">연주자 섭외 · 출연 문의</option>
+            <option value="공연 소식 · 티켓 예매 문의">공연 소식 · 티켓 예매 문의</option>
+            <option value="후원 · 기업 협업 문의">후원 · 기업 협업 문의</option>
+            <option value="기타 문의">기타 문의</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="name">성함 / 소속</label>
+          <input type="text" id="name" name="name" placeholder="예: 홍길동 / OO문화재단" required />
+        </div>
+
+        <div class="form-group">
+          <label for="replyTo">회신받으실 연락처 또는 이메일</label>
+          <input type="text" id="replyTo" name="replyTo" placeholder="예: example@email.com 또는 010-0000-0000" required />
+        </div>
+
+        <div class="form-group">
+          <label for="message">문의 내용</label>
+          <textarea id="message" name="message" placeholder="일정, 장소, 프로그램 등 구체적인 내용을 적어주시면 더욱 정확한 안내가 가능합니다." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">이메일로 문의 내용 보내기</button>
+      </form>
+
+      <div class="direct-info">
+        <div class="info-item">
+          <span>DIRECT EMAIL</span>
+          <a href="mailto:contact@levinproduction.kr">contact@levinproduction.kr</a>
+        </div>
+        <div class="info-item">
+          <span>KAKAO CHANNEL</span>
+          <a href="http://pf.kakao.com/_YEkxbX" target="_blank" rel="noopener noreferrer">카카오톡 채널 1:1 채팅 상담 →</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="social-links">
+      <a href="https://www.instagram.com/levin.production/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        <span>Instagram</span>
+      </a>
+      <a href="http://pf.kakao.com/_YEkxbX" target="_blank" rel="noopener noreferrer" aria-label="KakaoTalk Channel">
+        <svg viewBox="0 0 24 24"><path d="M12 3c-5.52 0-10 3.58-10 8 0 2.86 1.88 5.37 4.71 6.78-.19.72-.7 2.62-.8 3.03-.13.5.18.49.38.36.16-.1 2.48-1.68 3.49-2.37.71.13 1.46.2 2.22.2 5.52 0 10-3.58 10-8s-4.48-8-10-8z"/></svg>
+        <span>카카오톡 채널</span>
+      </a>
+    </div>
+    <div class="footer-info">
+      <p>레빈기획 (Levin Production) | 대표 권시은 | 사업자등록번호 157-41-01351</p>
+      <p>이메일 <a href="mailto:contact@levinproduction.kr">contact@levinproduction.kr</a> | 후원·입금 계좌 신한은행 110-479-286560 (레빈기획)</p>
+      <p style="margin-top: 8px;">© 2026 Levin Production. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function sendMail(e) {
+      e.preventDefault();
+      const category = document.getElementById('category').value;
+      const name = document.getElementById('name').value;
+      const replyTo = document.getElementById('replyTo').value;
+      const message = document.getElementById('message').value;
+
+      const subject = encodeURIComponent(`[레빈기획 문의] ${category} - ${name}`);
+      const body = encodeURIComponent(
+        `■ 문의 유형: ${category}\n` +
+        `■ 성함 / 소속: ${name}\n` +
+        `■ 회신 연락처: ${replyTo}\n\n` +
+        `■ 문의 내용:\n${message}`
+      );
+      window.location.href = `mailto:contact@levinproduction.kr?subject=${subject}&body=${body}`;
+    }
+  </script>
+</body>
+</html>
