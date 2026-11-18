@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects & Archive | 레빈기획 Levin Production</title>
+  <link rel="icon" type="image/png" href="Logo-pic-only.png">
+  <link rel="apple-touch-icon" href="Logo-pic-only.png">
+  <style>
+    :root {
+      --bg-color: #050507;
+      --card-bg: #121216;
+      --text-main: #f4f4f6;
+      --text-sub: #a0a0ab;
+      --accent: #d4af37;
+      --border: #24242c;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.6;
+      word-break: keep-all;
+    }
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(5, 5, 7, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-links a {
+      color: var(--text-sub);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--accent);
+    }
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 8rem 2rem 5rem;
+    }
+    .section-tag {
+      color: var(--accent);
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+    .section-desc {
+      color: var(--text-sub);
+      margin-bottom: 3rem;
+    }
+    .archive-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.3s, border-color 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+    }
+    .card img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-bottom: 1px solid var(--border);
+    }
+    .card-body {
+      padding: 1.8rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-meta {
+      font-size: 0.85rem;
+      color: var(--text-sub);
+      margin-bottom: 0.5rem;
+    }
+    .card-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      color: var(--text-main);
+    }
+    .card-desc {
+      color: var(--text-sub);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      flex: 1;
+    }
+    .card-link {
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 3rem 2rem;
+      text-align: center;
+      color: var(--text-sub);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">LEVIN PRODUCTION</a>
+      <nav class="nav-links">
+        <a href="index.html#about">About</a>
+        <a href="archive.html" class="active">Archive</a>
+        <a href="index.html#upcoming">2027 Season</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <span class="section-tag">PROJECTS & ARCHIVE</span>
+    <h1>공연 및 기획 아카이브</h1>
+    <p class="section-desc">레빈기획의 주요 공연 실황 아카이브입니다. 카드를 클릭하시면 유튜브 재생목록으로 연결됩니다.</p>
+
+    <div class="archive-grid">
+      <!-- 카드 1: 기존 index.html의 유튜브 재생목록 URL과 이미지 경로를 그대로 넣어주세요 -->
+      <a href="기존_권선징악_유튜브_링크" target="_blank" class="card">
+        <img src="기존_권선징악_썸네일_경로" alt="레빈시은 권 바이올린 독주회 : 권선징악">
+        <div class="card-body">
+          <div class="card-meta">2026. 09 · 금호아트홀 연세</div>
+          <h2 class="card-title">레빈시은 권 바이올린 독주회 : 권선징악</h2>
+          <p class="card-desc">타르티니 '악마의 트릴', 비에니아프스키 '파우스트 환상곡', 베토벤 '크로이처 소나타' 등 극적인 서사를 담은 리사이틀.</p>
+          <span class="card-link">실황 영상 5편 보기 →</span>
+        </div>
+      </a>
+
+      <!-- 카드 2 -->
+      <a href="기존_새롭게봄_유튜브_링크" target="_blank" class="card">
+        <img src="기존_새롭게봄_썸네일_경로" alt="바이올린 독주회 : 새롭게, 봄">
+        <div class="card-body">
+          <div class="card-meta">2026. 03 · 인천 엘림아트센터</div>
+          <h2 class="card-title">바이올린 독주회 : 새롭게, 봄</h2>
+          <p class="card-desc">새로운 계절의 시작을 알리는 다채로운 실내악 및 독주 레퍼토리 기획 연주.</p>
+          <span class="card-link">실황 영상 5편 보기 →</span>
+        </div>
+      </a>
+
+      <!-- 카드 3 -->
+      <a href="기존_규칙과환상_유튜브_링크" target="_blank" class="card">
+        <img src="기존_규칙과환상_썸네일_경로" alt="레빈시은 권 바이올린 독주회 : 규칙과 환상">
+        <div class="card-body">
+          <div class="card-meta">2025. 07 · 김포아트홀</div>
+          <h2 class="card-title">바이올린 독주회 : 규칙과 환상</h2>
+          <p class="card-desc">베토벤, 브람스, 쇼송, 후바이의 작품을 통해 고전적 형식미와 낭만적 환상을 탐구한 무대.</p>
+          <span class="card-link">실황 영상 6편 보기 →</span>
+        </div>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <p>레빈기획 (Levin Production) | 대표 권시은 | 사업자등록번호 157-41-01351</p>
+    <p style="margin-top: 0.5rem;">© 2026 Levin Production. All rights reserved.</p>
+  </footer>
+</body>
+</html>
