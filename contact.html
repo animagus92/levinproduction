@@ -396,10 +396,10 @@
       </form>
 
       <div class="direct-info">
-        <div class="info-item">
-          <span>DIRECT EMAIL</span>
-          <a href="mailto:contact@levinproduction.kr">contact@levinproduction.kr</a>
-        </div>
+       <div class="info-item">
+        <span>DIRECT EMAIL</span>
+        <a href="mailto:contact@levinproduction.kr" onclick="copyEmail()">contact@levinproduction.kr</a>
+      </div>
         <div class="info-item">
           <span>KAKAO CHANNEL</span>
           <a href="http://pf.kakao.com/_YEkxbX" target="_blank" rel="noopener noreferrer">카카오톡 채널 1:1 채팅 상담 →</a>
@@ -482,9 +482,18 @@
         }
       } catch (error) {
         alert('네트워크 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.');
-      } finally {
+   } finally {
         submitBtn.disabled = false;
         submitBtn.textContent = originalText;
+      }
+    }
+
+    function copyEmail() {
+      const email = 'contact@levinproduction.kr';
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(email).then(() => {
+          alert('이메일 주소(contact@levinproduction.kr)가 클립보드에 복사되었습니다.\n메일 앱이 열리지 않을 경우 사용하시는 메일 서비스에 붙여넣어 문의해 주세요.');
+        });
       }
     }
   </script>
