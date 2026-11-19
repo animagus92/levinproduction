@@ -63,7 +63,7 @@
       color: var(--accent);
     }
 
-    /* Hamburger-Button und Dropdown-Menü-Stile (Desktop & Mobil) */
+    /* Hamburger button and dropdown menu styles (Desktop & Mobile) */
     /* 언어 전환 링크 스타일 */
     .header-right {
       display: flex;
@@ -384,8 +384,8 @@
     <div class="nav-container">
       <a href="index-de.html" class="logo">LEVIN <span>PRODUCTION</span></a>
       <div class="header-right">
-        <div class="lang-switcher" aria-label="Language selector">
-          <a href="contact-de.html">한국어</a>
+        <div class="lang-switcher" aria-label="Sprachauswahl">
+          <a href="contact.html">한국어</a>
           <span>|</span>
           <a href="contact-en.html">English</a>
           <span>|</span>
@@ -400,7 +400,7 @@
         <nav class="dropdown-nav" id="dropdownNav">
           <a href="index-de.html#about">Über uns</a>
           <a href="archive-de.html">Archiv</a>
-          <a href="index-de.html#upcoming">Kommende Konzerte</a>
+          <a href="index-de.html#upcoming">Termine</a>
         </nav>
         </div>
       </div>
@@ -410,168 +410,21 @@
   <main>
     <div class="page-tag">Kontakt & Anfrage</div>
     <h1>Konzert- & Kooperationsanfrage</h1>
-    <p class="page-desc">Hinterlassen Sie uns gerne Ihre Anfrage zu Konzertplanung, Künstlerengagements, Kartenreservierungen oder Kooperationen. Wir melden uns schnellstmöglich bei Ihnen.</p>
+    <p class="page-desc">Hinterlassen Sie uns gerne Ihre Anfrage zu Konzertplanung, Künstlervermittlung, Ticketreservierungen oder Partnerschaften. Wir melden uns umgehend bei Ihnen zurück.</p>
 
     <div class="contact-card">
       <form id="contactForm" onsubmit="sendMail(event)">
         <div class="form-group">
-          <label for="category">Art der Anfrage</label>
+          <label for="category">Anfrageart</label>
           <select id="category" name="category">
             <option value="Konzertplanung & Produktion">Konzertplanung & Produktion</option>
-            <option value="Künstlerengagement & Auftrittsanfrage">Künstlerengagement & Auftrittsanfrage</option>
-            <option value="Konzertinfos & Kartenreservierung">Konzertinfos & Kartenreservierung</option>
-            <option value="Sponsoring & Unternehmenskooperation">Sponsoring & Unternehmenskooperation</option>
+            <option value="Künstlervermittlung & Auftritte">Künstlervermittlung & Auftritte</option>
+            <option value="Konzertinformationen & Ticketreservierung">Konzertinformationen & Ticketreservierung</option>
+            <option value="Sponsoring & Unternehmenspartnerschaft">Sponsoring & Unternehmenspartnerschaft</option>
             <option value="Sonstige Anfrage">Sonstige Anfrage</option>
           </select>
         </div>
 
         <div class="form-group">
           <label for="name">Name / Institution</label>
-          <input type="text" id="name" name="name" placeholder="z. B. Max Mustermann / Kulturstiftung" required />
-        </div>
-
-        <div class="form-group">
-          <label for="replyTo">E-Mail-Adresse oder Telefonnummer für Rückantwort</label>
-          <input type="text" id="replyTo" name="replyTo" placeholder="z. B. beispiel@email.de oder +49 170 0000000" required />
-        </div>
-
-        <div class="form-group">
-          <label for="message">Nachricht</label>
-          <textarea id="message" name="message" placeholder="Bitte teilen Sie uns Details wie Termin, Veranstaltungsort oder Programm mit, damit wir Ihnen präzise antworten können." required></textarea>
-        </div>
-
-        <!-- Honeypot-Feld zum Schutz vor Spam-Bots (auf dem Bildschirm unsichtbar) -->
-        <input type="text" id="honey_pot" name="honey_pot" style="display:none !important" tabindex="-1" autocomplete="off" />
-
-        <button type="submit" id="submitBtn" class="btn-submit">Anfrage absenden</button>
-      </form>
-
-      <div class="direct-info">
-        <div class="info-item">
-          <span>DIREKT-E-MAIL</span>
-          <a href="mailto:contact@levinproduction.kr" onclick="copyEmail()">contact@levinproduction.kr</a>
-        </div>
-        <div class="info-item">
-          <span>KAKAO-KANAL</span>
-          <a href="http://pf.kakao.com/_YEkxbX" target="_blank" rel="noopener noreferrer">KakaoTalk-Kanal 1:1-Chat →</a>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <footer>
-    <img src="logo-simple-circle.png" alt="Levin Production Logo" class="footer-logo">
-
-    <div class="social-links">
-      <a href="https://www.instagram.com/levin.production/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-        <span>Instagram</span>
-      </a>
-      <a href="http://pf.kakao.com/_YEkxbX" target="_blank" rel="noopener noreferrer" aria-label="KakaoTalk-Kanal">
-        <svg viewBox="0 0 24 24"><path d="M12 3c-5.52 0-10 3.58-10 8 0 2.86 1.88 5.37 4.71 6.78-.19.72-.7 2.62-.8 3.03-.13.5.18.49.38.36.16-.1 2.48-1.68 3.49-2.37.71.13 1.46.2 2.22.2 5.52 0 10-3.58 10-8s-4.48-8-10-8z"/></svg>
-        <span>KakaoTalk-Kanal</span>
-      </a>
-    </div>
-
-    <div class="footer-info">
-      <p>Levin Production | Inhaberin Sieun Kwon | Handelsregisternummer 157-41-01351</p>
-      <p style="margin-top: 8px;">© 2026 Levin Production. Alle Rechte vorbehalten.</p>
-    </div>
-  </footer>
-
-  <script>
-    const MAKE_WEBHOOK_URL = 'https://hook.us2.make.com/dv88yh68o1ls4micxzjd8o9fpztbg7v7';
-
-    async function sendMail(e) {
-      e.preventDefault();
-
-      const form = document.getElementById('contactForm');
-      const submitBtn = document.getElementById('submitBtn');
-      const honeyPot = document.getElementById('honey_pot').value;
-
-      // 1. Spam-Bot-Honeypot-Prüfung
-      if (honeyPot !== '') {
-        return;
-      }
-
-      const category = document.getElementById('category').value;
-      const name = document.getElementById('name').value.trim();
-      const replyTo = document.getElementById('replyTo').value.trim();
-      const message = document.getElementById('message').value.trim();
-
-      // 2. Filter für externe Links (URLs) und unzulässige Werbebegriffe
-      const spamPattern = /(https?:\/\/|www\.|카지노|바카라|토토|대출|출장안마|성인용품)/i;
-      if (spamPattern.test(message) || spamPattern.test(name)) {
-        alert('Aus Sicherheitsgründen sind externe Links (URLs) oder Werbebegriffe nicht zulässig.');
-        return;
-      }
-
-      const originalText = submitBtn.textContent;
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Ihre Anfrage wird gesendet...';
-
-      try {
-        const response = await fetch(MAKE_WEBHOOK_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            category: category,
-            name: name,
-            replyTo: replyTo,
-            message: message,
-            honey_pot: honeyPot
-          })
-        });
-
-        if (response.ok) {
-          alert('Ihre Anfrage wurde erfolgreich übermittelt. Wir werden sie prüfen und Ihnen in Kürze antworten.');
-          form.reset();
-        } else {
-          alert('Beim Senden ist ein vorübergehender Fehler aufgetreten. Bitte kontaktieren Sie uns über die unten stehende E-Mail-Adresse oder den KakaoTalk-Kanal.');
-        }
-      } catch (error) {
-        alert('Ein Netzwerkfehler ist aufgetreten. Bitte versuchen Sie es in Kürze erneut.');
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
-      }
-    }
-
-    function copyEmail() {
-      const email = 'contact@levinproduction.kr';
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(email).then(() => {
-          alert('Die E-Mail-Adresse (contact@levinproduction.kr) wurde in die Zwischenablage kopiert.
-Falls sich Ihr E-Mail-Programm nicht öffnet, fügen Sie die Adresse bitte in Ihren bevorzugten E-Mail-Dienst ein.');
-        });
-      }
-    }
-  </script>
-  <script>
-    const menuBtn = document.getElementById('menuBtn');
-    const dropdownNav = document.getElementById('dropdownNav');
-
-    menuBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      menuBtn.classList.toggle('active');
-      dropdownNav.classList.toggle('open');
-    });
-
-    dropdownNav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        menuBtn.classList.remove('active');
-        dropdownNav.classList.remove('open');
-      });
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!menuBtn.contains(e.target) && !dropdownNav.contains(e.target)) {
-        menuBtn.classList.remove('active');
-        dropdownNav.classList.remove('open');
-      }
-    });
-  </script>
-</body>
-</html>
+          <input type="text" id="name" name
