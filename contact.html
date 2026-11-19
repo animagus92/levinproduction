@@ -52,7 +52,7 @@
     }
     .logo span { color: var(--accent); }
 
-/* 햄버거 버튼 및 드롭다운 메뉴 스타일 (데스크톱 & 모바일 공통) */
+    /* 햄버거 버튼 및 드롭다운 메뉴 스타일 (데스크톱 & 모바일 공통) */
     .menu-wrapper {
       position: relative;
     }
@@ -204,9 +204,13 @@
       cursor: pointer;
       transition: all 0.25s;
     }
-    .btn-submit:hover {
+    .btn-submit:hover:not(:disabled) {
       background-color: var(--accent);
       color: #000000;
+    }
+    .btn-submit:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
     }
 
     .direct-info {
@@ -281,130 +285,176 @@
 <body>
 
 <header>
-    <div class="nav-container">
-      <a href="/" class="logo">LEVIN <span>PRODUCTION</span></a>
-      <div class="menu-wrapper">
-        <button class="hamburger-btn" id="menuBtn" aria-label="메뉴 열기">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <nav class="dropdown-nav" id="dropdownNav">
-          <a href="/#about">소개</a>
-          <a href="/#projects">주요 활동</a>
-          <a href="/contact" class="active">문의</a>
-        </nav>
+  <div class="nav-container">
+    <a href="/" class="logo">LEVIN <span>PRODUCTION</span></a>
+    <div class="menu-wrapper">
+      <button class="hamburger-btn" id="menuBtn" aria-label="메뉴 열기">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="dropdown-nav" id="dropdownNav">
+        <a href="/#about">소개</a>
+        <a href="/#projects">주요 활동</a>
+        <a href="/contact" class="active">문의</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="page-tag">Contact & Inquiry</div>
+  <h1>공연 · 협업 문의하기</h1>
+  <p class="page-desc">공연 기획, 아티스트 섭외, 티켓 예매 및 기타 협업 관련 문의를 남겨주시면 확인 후 신속히 답변드리겠습니다.</p>
+
+  <div class="contact-card">
+    <form id="contactForm" onsubmit="sendMail(event)">
+      <div class="form-group">
+        <label for="category">문의 유형</label>
+        <select id="category" name="category">
+          <option value="공연 기획 및 제작 문의">공연 기획 및 제작 문의</option>
+          <option value="연주자 섭외 · 출연 문의">연주자 섭외 · 출연 문의</option>
+          <option value="공연 소식 · 티켓 예매 문의">공연 소식 · 티켓 예매 문의</option>
+          <option value="후원 · 기업 협업 문의">후원 · 기업 협업 문의</option>
+          <option value="기타 문의">기타 문의</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="name">성함 / 소속</label>
+        <input type="text" id="name" name="name" placeholder="예: 홍길동 / OO문화재단" required />
+      </div>
+
+      <div class="form-group">
+        <label for="replyTo">회신받으실 연락처 또는 이메일</label>
+        <input type="text" id="replyTo" name="replyTo" placeholder="예: example@email.com 또는 010-0000-0000" required />
+      </div>
+
+      <div class="form-group">
+        <label for="message">문의 내용</label>
+        <textarea id="message" name="message" placeholder="일정, 장소, 프로그램 등 구체적인 내용을 적어주시면 더욱 정확한 안내가 가능합니다." required></textarea>
+      </div>
+
+      <!-- 스팸 봇 차단용 허니팟 필드 (화면에 보이지 않음) -->
+      <input type="text" id="honey_pot" name="honey_pot" style="display:none !important" tabindex="-1" autocomplete="off" />
+
+      <button type="submit" id="submitBtn" class="btn-submit">문의 내용 보내기</button>
+    </form>
+
+    <div class="direct-info">
+      <div class="info-item">
+        <span>DIRECT EMAIL</span>
+        <a href="mailto:contact@levinproduction.kr">contact@levinproduction.kr</a>
+      </div>
+      <div class="info-item">
+        <span>KAKAO CHANNEL</span>
+        <a href="http://pf.kakao.com/_YEkxbX" target="_blank" rel="noopener noreferrer">카카오톡 채널 1:1 채팅 상담 →</a>
       </div>
     </div>
-  </header>
-  <main>
-    <div class="page-tag">Contact & Inquiry</div>
-    <h1>공연 · 협업 문의하기</h1>
-    <p class="page-desc">공연 기획, 아티스트 섭외, 티켓 예매 및 기타 협업 관련 문의를 남겨주시면 확인 후 신속히 답변드리겠습니다.</p>
+  </div>
+</main>
 
-    <div class="contact-card">
-      <form id="contactForm" onsubmit="sendMail(event)">
-        <div class="form-group">
-          <label for="category">문의 유형</label>
-          <select id="category" name="category">
-            <option value="공연 기획 및 제작 문의">공연 기획 및 제작 문의</option>
-            <option value="연주자 섭외 · 출연 문의">연주자 섭외 · 출연 문의</option>
-            <option value="공연 소식 · 티켓 예매 문의">공연 소식 · 티켓 예매 문의</option>
-            <option value="후원 · 기업 협업 문의">후원 · 기업 협업 문의</option>
-            <option value="기타 문의">기타 문의</option>
-          </select>
-        </div>
+<footer>
+  <div class="social-links">
+    <a href="https://www.instagram.com/levin.production/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      <span>Instagram</span>
+    </a>
+    <a href="http://pf.kakao.com/_YEkxbX" target="_blank" rel="noopener noreferrer" aria-label="KakaoTalk Channel">
+      <svg viewBox="0 0 24 24"><path d="M12 3c-5.52 0-10 3.58-10 8 0 2.86 1.88 5.37 4.71 6.78-.19.72-.7 2.62-.8 3.03-.13.5.18.49.38.36.16-.1 2.48-1.68 3.49-2.37.71.13 1.46.2 2.22.2 5.52 0 10-3.58 10-8s-4.48-8-10-8z"/></svg>
+      <span>카카오톡 채널</span>
+    </a>
+  </div>
+  <div class="footer-info">
+    <p>레빈기획 (Levin Production) | 대표 권시은 | 사업자등록번호 157-41-01351</p>
+    <p>이메일 <a href="mailto:contact@levinproduction.kr">contact@levinproduction.kr</a> | 후원·입금 계좌 신한은행 110-479-286560 (레빈기획)</p>
+    <p style="margin-top: 8px;">© 2026 Levin Production. All rights reserved.</p>
+  </div>
+</footer>
 
-        <div class="form-group">
-          <label for="name">성함 / 소속</label>
-          <input type="text" id="name" name="name" placeholder="예: 홍길동 / OO문화재단" required />
-        </div>
+<script>
+  const MAKE_WEBHOOK_URL = 'https://hook.us2.make.com/dv88yh68o1ls4micxzjd8o9fpztbg7v7';
 
-        <div class="form-group">
-          <label for="replyTo">회신받으실 연락처 또는 이메일</label>
-          <input type="text" id="replyTo" name="replyTo" placeholder="예: example@email.com 또는 010-0000-0000" required />
-        </div>
+  async function sendMail(e) {
+    e.preventDefault();
 
-        <div class="form-group">
-          <label for="message">문의 내용</label>
-          <textarea id="message" name="message" placeholder="일정, 장소, 프로그램 등 구체적인 내용을 적어주시면 더욱 정확한 안내가 가능합니다." required></textarea>
-        </div>
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const honeyPot = document.getElementById('honey_pot').value;
 
-        <button type="submit" class="btn-submit">문의 내용 보내기</button>
-      </form>
-
-      <div class="direct-info">
-        <div class="info-item">
-          <span>DIRECT EMAIL</span>
-          <a href="mailto:contact@levinproduction.kr">contact@levinproduction.kr</a>
-        </div>
-        <div class="info-item">
-          <span>KAKAO CHANNEL</span>
-          <a href="http://pf.kakao.com/_YEkxbX" target="_blank" rel="noopener noreferrer">카카오톡 채널 1:1 채팅 상담 →</a>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <footer>
-    <div class="social-links">
-      <a href="https://www.instagram.com/levin.production/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-        <span>Instagram</span>
-      </a>
-      <a href="http://pf.kakao.com/_YEkxbX" target="_blank" rel="noopener noreferrer" aria-label="KakaoTalk Channel">
-        <svg viewBox="0 0 24 24"><path d="M12 3c-5.52 0-10 3.58-10 8 0 2.86 1.88 5.37 4.71 6.78-.19.72-.7 2.62-.8 3.03-.13.5.18.49.38.36.16-.1 2.48-1.68 3.49-2.37.71.13 1.46.2 2.22.2 5.52 0 10-3.58 10-8s-4.48-8-10-8z"/></svg>
-        <span>카카오톡 채널</span>
-      </a>
-    </div>
-    <div class="footer-info">
-      <p>레빈기획 (Levin Production) | 대표 권시은 | 사업자등록번호 157-41-01351</p>
-      <p>이메일 <a href="mailto:contact@levinproduction.kr">contact@levinproduction.kr</a> | 후원·입금 계좌 신한은행 110-479-286560 (레빈기획)</p>
-      <p style="margin-top: 8px;">© 2026 Levin Production. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <script>
-    function sendMail(e) {
-      e.preventDefault();
-      const category = document.getElementById('category').value;
-      const name = document.getElementById('name').value;
-      const replyTo = document.getElementById('replyTo').value;
-      const message = document.getElementById('message').value;
-
-      const subject = encodeURIComponent(`[레빈기획 문의] ${category} - ${name}`);
-      const body = encodeURIComponent(
-        `■ 문의 유형: ${category}\n` +
-        `■ 성함 / 소속: ${name}\n` +
-        `■ 회신 연락처: ${replyTo}\n\n` +
-        `■ 문의 내용:\n${message}`
-      );
-      window.location.href = `mailto:contact@levinproduction.kr?subject=${subject}&body=${body}`;
+    // 1. 스팸 봇 허니팟 검증 (봇이 숨겨진 필드를 채우면 전송하지 않고 조용히 종료)
+    if (honeyPot !== '') {
+      return;
     }
-  </script>
-  <script>
-    const menuBtn = document.getElementById('menuBtn');
-    const dropdownNav = document.getElementById('dropdownNav');
 
-    menuBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      menuBtn.classList.toggle('active');
-      dropdownNav.classList.toggle('open');
-    });
+    const category = document.getElementById('category').value;
+    const name = document.getElementById('name').value.trim();
+    const replyTo = document.getElementById('replyTo').value.trim();
+    const message = document.getElementById('message').value.trim();
 
-    dropdownNav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        menuBtn.classList.remove('active');
-        dropdownNav.classList.remove('open');
+    // 2. 1차 스팸·피싱 링크 및 금지어 차단
+    const spamPattern = /(https?:\/\/|www\.|카지노|바카라|토토|대출|출장안마|성인용품)/i;
+    if (spamPattern.test(message) || spamPattern.test(name)) {
+      alert('보안 정책상 외부 링크(URL)나 광고성 키워드는 포함할 수 없습니다.');
+      return;
+    }
+
+    const originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = '문의 내용을 전송하고 있습니다...';
+
+    try {
+      const response = await fetch(MAKE_WEBHOOK_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          category: category,
+          name: name,
+          replyTo: replyTo,
+          message: message,
+          honey_pot: honeyPot
+        })
       });
-    });
 
-    document.addEventListener('click', (e) => {
-      if (!menuBtn.contains(e.target) && !dropdownNav.contains(e.target)) {
-        menuBtn.classList.remove('active');
-        dropdownNav.classList.remove('open');
+      if (response.ok) {
+        alert('문의가 정상적으로 접수되었습니다. 확인 후 신속히 답변드리겠습니다.');
+        form.reset();
+      } else {
+        alert('전송 중 일시적인 오류가 발생했습니다. 아래 이메일 또는 카카오톡 채널로 문의해 주세요.');
       }
+    } catch (error) {
+      alert('네트워크 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
+  }
+</script>
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const dropdownNav = document.getElementById('dropdownNav');
+
+  menuBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    menuBtn.classList.toggle('active');
+    dropdownNav.classList.toggle('open');
+  });
+
+  dropdownNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menuBtn.classList.remove('active');
+      dropdownNav.classList.remove('open');
     });
-  </script>
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!menuBtn.contains(e.target) && !dropdownNav.contains(e.target)) {
+      menuBtn.classList.remove('active');
+      dropdownNav.classList.remove('open');
+    }
+  });
+</script>
 </body>
 </html>
