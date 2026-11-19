@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>레빈기획 | Levin Production</title>
-<link rel="icon" type="image/png" href="/simple-logo.png">
-<link rel="apple-touch-icon" href="/simple-logo.png">
+  <link rel="icon" type="image/png" href="simple-logo.png">
+  <link rel="apple-touch-icon" href="simple-logo.png">
   <style>
     :root {
       --bg-color: #050507;
@@ -20,6 +20,10 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -39,16 +43,14 @@
       border-bottom: 1px solid var(--border);
       z-index: 100;
     }
-    html {
-      scroll-behavior: smooth; /* 클릭 시 부드럽게 스크롤 이동 */
-    }
-    
+
     section {
-     max-width: 1100px;
-     margin: 0 auto;
-     padding: 90px 24px;
-     scroll-margin-top: 70px; /* 상단 고정 헤더 높이만큼 여백 확보 */
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 90px 24px;
+      scroll-margin-top: 70px;
     }
+
     .nav-container {
       max-width: 1100px;
       margin: 0 auto;
@@ -70,10 +72,11 @@
       color: var(--accent);
     }
 
-/* 햄버거 버튼 및 드롭다운 메뉴 스타일 (데스크톱 & 모바일 공통) */
+    /* 햄버거 버튼 및 드롭다운 메뉴 스타일 (데스크톱 & 모바일 공통) */
     .menu-wrapper {
       position: relative;
     }
+
     .hamburger-btn {
       background: none;
       border: 1px solid transparent;
@@ -87,10 +90,12 @@
       border-radius: 6px;
       transition: all 0.2s ease;
     }
+
     .hamburger-btn:hover {
       border-color: var(--border);
       background-color: rgba(255, 255, 255, 0.04);
     }
+
     .hamburger-btn span {
       display: block;
       width: 22px;
@@ -99,17 +104,21 @@
       border-radius: 2px;
       transition: all 0.25s ease;
     }
+
     .hamburger-btn.active span:nth-child(1) {
       transform: translateY(7px) rotate(45deg);
       background-color: var(--accent);
     }
+
     .hamburger-btn.active span:nth-child(2) {
       opacity: 0;
     }
+
     .hamburger-btn.active span:nth-child(3) {
       transform: translateY(-7px) rotate(-45deg);
       background-color: var(--accent);
     }
+
     .dropdown-nav {
       position: absolute;
       top: calc(100% + 12px);
@@ -129,11 +138,13 @@
       transition: all 0.25s ease;
       z-index: 200;
     }
+
     .dropdown-nav.open {
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
     }
+
     .dropdown-nav a {
       margin: 0;
       padding: 13px 22px;
@@ -143,7 +154,9 @@
       transition: all 0.2s ease;
       border-left: 2px solid transparent;
     }
-    .dropdown-nav a:hover, .dropdown-nav a.active {
+
+    .dropdown-nav a:hover,
+    .dropdown-nav a.active {
       color: var(--accent);
       background-color: rgba(212, 175, 55, 0.06);
       border-left-color: var(--accent);
@@ -166,7 +179,6 @@
       margin-bottom: 24px;
       border-radius: 12px;
       overflow: hidden;
-      /* 영상 테두리가 배경과 자연스럽게 스며들도록 처리 */
       box-shadow: 0 0 50px rgba(212, 175, 55, 0.08);
     }
 
@@ -216,12 +228,6 @@
       font-weight: 600;
     }
 
-    section {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 90px 24px;
-    }
-
     .section-title {
       font-size: 1.8rem;
       margin-bottom: 12px;
@@ -263,7 +269,8 @@
       color: var(--text-sub);
       font-size: 0.95rem;
     }
-/* 포스터 카드 링크 및 이미지 스타일 */
+
+    /* 포스터 카드 링크 및 이미지 스타일 */
     a.card {
       text-decoration: none;
       color: inherit;
@@ -272,21 +279,25 @@
       padding: 0;
       transition: transform 0.25s ease, border-color 0.25s ease;
     }
+
     a.card:hover {
       transform: translateY(-6px);
       border-color: var(--accent);
     }
-  .card-thumb {
+
+    .card-thumb {
       width: 100%;
-      aspect-ratio: 1 / 1.414; /* A4/포스터 정사이즈 비율 */
+      aspect-ratio: 1 / 1.414;
       object-fit: cover;
       object-position: top;
       display: block;
       border-bottom: 1px solid var(--border);
     }
+
     .card-body {
       padding: 24px 28px 28px;
     }
+
     .play-link {
       display: inline-block;
       margin-top: 14px;
@@ -294,6 +305,7 @@
       color: var(--accent);
       font-weight: 600;
     }
+
     .contact-box {
       background-color: var(--card-bg);
       border: 1px solid var(--border);
@@ -306,6 +318,7 @@
       color: var(--text-sub);
       margin: 12px 0 28px;
     }
+
     footer {
       border-top: 1px solid var(--border);
       padding: 40px 24px;
@@ -313,6 +326,7 @@
       color: var(--text-sub);
       font-size: 0.85rem;
     }
+
     .footer-logo {
       display: block;
       width: 60px;
@@ -320,17 +334,19 @@
       object-fit: contain;
       margin: 0 auto 20px;
     }
+
     .social-links {
       display: flex;
       justify-content: center;
       gap: 16px;
       margin-bottom: 18px;
     }
+
     .social-links a {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      color: var(--text-muted);
+      color: var(--text-sub);
       text-decoration: none;
       font-size: 0.88rem;
       padding: 8px 14px;
@@ -338,27 +354,19 @@
       border-radius: 50px;
       transition: all 0.25s ease;
     }
+
     .social-links a:hover {
       color: var(--accent);
       border-color: var(--accent);
       transform: translateY(-2px);
     }
+
     .social-links svg {
       width: 16px;
       height: 16px;
       fill: currentColor;
     }
-    @media (max-width: 600px) {
-      .logo-video-wrap {
-        max-width: 280px;
-      }
-      nav a {
-        margin-left: 14px;
-        font-size: 0.85rem;
-      }
-    }
 
-        
     @media (max-width: 600px) {
       .logo-video-wrap {
         max-width: 280px;
@@ -372,7 +380,7 @@
 </head>
 <body>
 
-<header>
+  <header>
     <div class="nav-container">
       <a href="#" class="logo">LEVIN <span>PRODUCTION</span></a>
       <div class="menu-wrapper">
@@ -382,11 +390,10 @@
           <span></span>
         </button>
         <nav class="dropdown-nav" id="dropdownNav">
-         <a href="#about">소개</a>
-         <a href="#projects">주요 활동</a>    
-         <a href="/archive.html">연주기록</a>
-         <a href="#upcoming">다음공연</a>
-         <a href="/contact">문의</a>
+          <a href="#about">소개</a>
+          <a href="#previous">연주기록</a>
+          <a href="#upcoming">다음공연</a>
+          <a href="#contact">문의</a>
         </nav>
       </div>
     </div>
@@ -400,7 +407,7 @@
       <div class="hero-subtitle">Classical Music Agency</div>
       <h1>레빈기획 (Levin Production)</h1>
       <p>깊이 있는 예술적 통찰과 정교한 무대 기획으로 클래식 음악의 새로운 울림을 만듭니다.</p>
-      <a href="#projects" class="btn">프로젝트 살펴보기</a>
+      <a href="#previous" class="btn">프로젝트 살펴보기</a>
     </div>
 
     <section id="about">
@@ -459,7 +466,7 @@
             </li>
           </ul>
         </div>
-        <a href="/contact" class="play-link" style="text-decoration: none; margin-top: 24px;">공연 소식 · 티켓 오픈 문의 →</a>
+        <a href="contact.html" class="play-link" style="text-decoration: none; margin-top: 24px;">공연 소식 · 티켓 오픈 문의 →</a>
       </div>
     </section>
 
@@ -467,33 +474,33 @@
       <div class="contact-box">
         <h2 class="section-title">Contact</h2>
         <p>공연 기획, 연주 섭외 및 협업 관련 문의는 페이지 아래 이메일 또는 카카오톡 채널로 연락해 주시기 바랍니다.</p>
-        <a href="/contact" class="btn">문의 페이지로 이동</a>
+        <a href="contact.html" class="btn">문의 페이지로 이동</a>
       </div>
     </section>
   </main>
 
-    <footer>
-      <img src="logo-simple-circle.png" alt="Levin Production 로고" class="footer-logo">
+  <footer>
+    <img src="logo-simple-circle.png" alt="Levin Production 로고" class="footer-logo">
 
-      <div class="social-links">
-        <!-- 인스타그램 링크 -->
-        <a href="https://www.instagram.com/levin.production/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-          <span>Instagram</span>
-        </a>
+    <div class="social-links">
+      <!-- 인스타그램 링크 -->
+      <a href="https://www.instagram.com/levin.production/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        <span>Instagram</span>
+      </a>
 
-        <!-- 카카오톡 채널 링크 -->
-        <a href="http://pf.kakao.com/_YEkxbX" target="_blank" rel="noopener noreferrer" aria-label="KakaoTalk Channel">
-          <svg viewBox="0 0 24 24"><path d="M12 3c-5.52 0-10 3.58-10 8 0 2.86 1.88 5.37 4.71 6.78-.19.72-.7 2.62-.8 3.03-.13.5.18.49.38.36.16-.1 2.48-1.68 3.49-2.37.71.13 1.46.2 2.22.2 5.52 0 10-3.58 10-8s-4.48-8-10-8z"/></svg>
-          <span>카카오톡 채널</span>
-        </a>
-      </div>
+      <!-- 카카오톡 채널 링크 -->
+      <a href="http://pf.kakao.com/_YEkxbX" target="_blank" rel="noopener noreferrer" aria-label="KakaoTalk Channel">
+        <svg viewBox="0 0 24 24"><path d="M12 3c-5.52 0-10 3.58-10 8 0 2.86 1.88 5.37 4.71 6.78-.19.72-.7 2.62-.8 3.03-.13.5.18.49.38.36.16-.1 2.48-1.68 3.49-2.37.71.13 1.46.2 2.22.2 5.52 0 10-3.58 10-8s-4.48-8-10-8z"/></svg>
+        <span>카카오톡 채널</span>
+      </a>
+    </div>
 
-      <p>레빈기획 (Levin Production) | 대표 권시은 | 사업자등록번호 157-41-01351</p>
-      <p style="margin-top: 8px;">© 2026 Levin Production. All rights reserved.</p>
-    </footer>
+    <p>레빈기획 (Levin Production) | 대표 권시은 | 사업자등록번호 157-41-01351</p>
+    <p style="margin-top: 8px;">© 2026 Levin Production. All rights reserved.</p>
+  </footer>
 
-<script>
+  <script>
     const menuBtn = document.getElementById('menuBtn');
     const dropdownNav = document.getElementById('dropdownNav');
 
