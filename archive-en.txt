@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects & Archive | Levin Production</title>
+  <link rel="icon" type="image/png" href="simple-logo.png">
+  <link rel="apple-touch-icon" href="simple-logo.png">
+  <style>
+    :root {
+      --bg-color: #050507;
+      --card-bg: #121216;
+      --text-main: #f4f4f6;
+      --text-sub: #a0a0ab;
+      --accent: #d4af37;
+      --border: #24242c;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(5, 5, 7, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--text-main);
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    /* Hamburger button and dropdown menu styles (Desktop & Mobile) */
+    .menu-wrapper {
+      position: relative;
+    }
+
+    .hamburger-btn {
+      background: none;
+      border: 1px solid transparent;
+      color: var(--text-main);
+      cursor: pointer;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .hamburger-btn:hover {
+      border-color: var(--border);
+      background-color: rgba(255, 255, 255, 0.04);
+    }
+
+    .hamburger-btn span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background-color: var(--text-main);
+      border-radius: 2px;
+      transition: all 0.25s ease;
+    }
+
+    .hamburger-btn.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+      background-color: var(--accent);
+    }
+
+    .hamburger-btn.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger-btn.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+      background-color: var(--accent);
+    }
+
+    .dropdown-nav {
+      position: absolute;
+      top: calc(100% + 12px);
+      right: 0;
+      width: 190px;
+      background-color: rgba(18, 18, 22, 0.96);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 0;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.65);
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: all 0.25s ease;
+      z-index: 200;
+    }
+
+    .dropdown-nav.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-nav a {
+      margin: 0;
+      padding: 13px 22px;
+      color: var(--text-sub);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+      border-left: 2px solid transparent;
+    }
+
+    .dropdown-nav a:hover,
+    .dropdown-nav a.active {
+      color: var(--accent);
+      background-color: rgba(212, 175, 55, 0.06);
+      border-left-color: var(--accent);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 130px 24px 90px;
+    }
+
+    .section-tag {
+      color: var(--accent);
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-desc {
+      color: var(--text-sub);
+      margin-bottom: 3rem;
+    }
+
+    .archive-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.3s, border-color 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+    }
+
+    .card img {
+      width: 100%;
+      aspect-ratio: 1 / 1.414;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .card-body {
+      padding: 1.8rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-meta {
+      font-size: 0.85rem;
+      color: var(--text-sub);
+      margin-bottom: 0.5rem;
+    }
+
+    .card-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      color: var(--text-main);
+    }
+
+    .card-desc {
+      color: var(--text-sub);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      flex: 1;
+    }
+
+    .card-link {
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 24px;
+      text-align: center;
+      color: var(--text-sub);
+      font-size: 0.85rem;
+    }
+
+    .footer-logo {
+      display: block;
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      margin: 0 auto 20px;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-sub);
+      text-decoration: none;
+      font-size: 0.88rem;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      transition: all 0.25s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .social-links svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">LEVIN <span>PRODUCTION</span></a>
+      <div class="menu-wrapper">
+        <button class="hamburger-btn" id="menuBtn" aria-label="Open menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="dropdown-nav" id="dropdownNav">
+          <a href="index.html#about">About</a>
+          <a href="index.html#upcoming">Upcoming</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <span class="section-tag">ARCHIVE</span>
+    <h1>Performance Archive</h1>
+    <p class="section-desc">Live concert archives presented by Levin Production. Click any card to view the YouTube performance playlist.</p>
+
+    <div class="archive-grid">
+      <!-- Card 1 -->
+      <a href="https://www.youtube.com/playlist?list=PLPlv4k5_e2n8" target="_blank" rel="noopener noreferrer" class="card">
+        <img src="goodandevil.png" alt="Levin Sieun Kwon Violin Recital : Good and Evil">
+        <div class="card-body">
+          <div class="card-meta">Sep 2026 · Kumho Art Hall Yonsei</div>
+          <h2 class="card-title">Levin Sieun Kwon Violin Recital: Good and Evil</h2>
+          <p class="card-desc">A dramatic narrative recital featuring Tartini's "Devil's Trill," Wieniawski's "Faust Fantasy," and Beethoven's "Kreutzer Sonata."</p>
+          <span class="card-link">Watch Live Recordings →</span>
+        </div>
+      </a>
+
+      <!-- Card 2 -->
+      <a href="https://www.youtube.com/playlist?list=PLbQMhEmIHRpaK4O0UHCg97j_V2n1-T9QQ" target="_blank" rel="noopener noreferrer" class="card">
+        <img src="newlyspring.jpg" alt="Violin Recital : Anew, Spring">
+        <div class="card-body">
+          <div class="card-meta">Mar 2026 · Elim Art Center, Incheon</div>
+          <h2 class="card-title">Violin Recital: Anew, Spring</h2>
+          <p class="card-desc">A curated program of vibrant chamber and solo works celebrating the arrival of a new season.</p>
+          <span class="card-link">Watch Live Recordings →</span>
+        </div>
+      </a>
+
+      <!-- Card 3 -->
+      <a href="https://www.youtube.com/playlist?list=PLbQMhEmIHRparYNZ3rs-fv3fO66Vefbzg" target="_blank" rel="noopener noreferrer" class="card">
+        <img src="ruleandfantasy.jpg" alt="Levin Sieun Kwon Violin Recital : Rule and Fantasy">
+        <div class="card-body">
+          <div class="card-meta">Jul 2025 · Gimpo Art Hall</div>
+          <h2 class="card-title">Violin Recital: Rule and Fantasy</h2>
+          <p class="card-desc">A stage exploring classical formal beauty and romantic fantasy through works by Beethoven, Brahms, Chausson, and Hubay.</p>
+          <span class="card-link">Watch Live Recordings →</span>
+        </div>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <img src="logo-simple-circle.png" alt="Levin Production Logo" class="footer-logo">
+
+    <div class="social-links">
+      <!-- Instagram Link -->
+      <a href="https://www.instagram.com/levin.production/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        <span>Instagram</span>
+      </a>
+
+      <!-- KakaoTalk Channel Link -->
+      <a href="http://pf.kakao.com/_YEkxbX" target="_blank" rel="noopener noreferrer" aria-label="KakaoTalk Channel">
+        <svg viewBox="0 0 24 24"><path d="M12 3c-5.52 0-10 3.58-10 8 0 2.86 1.88 5.37 4.71 6.78-.19.72-.7 2.62-.8 3.03-.13.5.18.49.38.36.16-.1 2.48-1.68 3.49-2.37.71.13 1.46.2 2.22.2 5.52 0 10-3.58 10-8s-4.48-8-10-8z"/></svg>
+        <span>KakaoTalk Channel</span>
+      </a>
+    </div>
+
+    <p>Levin Production | CEO Sieun Kwon | Business Registration No. 157-41-01351</p>
+    <p style="margin-top: 8px;">© 2026 Levin Production. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const dropdownNav = document.getElementById('dropdownNav');
+
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menuBtn.classList.toggle('active');
+      dropdownNav.classList.toggle('open');
+    });
+
+    dropdownNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuBtn.classList.remove('active');
+        dropdownNav.classList.remove('open');
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!menuBtn.contains(e.target) && !dropdownNav.contains(e.target)) {
+        menuBtn.classList.remove('active');
+        dropdownNav.classList.remove('open');
+      }
+    });
+  </script>
+</body>
+</html>

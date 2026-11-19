@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Levin Production | Classical Music Agency</title>
+  <link rel="icon" type="image/png" href="simple-logo.png">
+  <link rel="apple-touch-icon" href="simple-logo.png">
+  <style>
+    :root {
+      --bg-color: #050507;
+      --card-bg: #121216;
+      --text-main: #f4f4f6;
+      --text-sub: #a0a0ab;
+      --accent: #d4af37;
+      --border: #24242c;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(5, 5, 7, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 90px 24px;
+      scroll-margin-top: 70px;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--text-main);
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    /* Hamburger button and dropdown menu styles (Desktop & Mobile) */
+    .menu-wrapper {
+      position: relative;
+    }
+
+    .hamburger-btn {
+      background: none;
+      border: 1px solid transparent;
+      color: var(--text-main);
+      cursor: pointer;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .hamburger-btn:hover {
+      border-color: var(--border);
+      background-color: rgba(255, 255, 255, 0.04);
+    }
+
+    .hamburger-btn span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background-color: var(--text-main);
+      border-radius: 2px;
+      transition: all 0.25s ease;
+    }
+
+    .hamburger-btn.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+      background-color: var(--accent);
+    }
+
+    .hamburger-btn.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger-btn.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+      background-color: var(--accent);
+    }
+
+    .dropdown-nav {
+      position: absolute;
+      top: calc(100% + 12px);
+      right: 0;
+      width: 190px;
+      background-color: rgba(18, 18, 22, 0.96);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 0;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.65);
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: all 0.25s ease;
+      z-index: 200;
+    }
+
+    .dropdown-nav.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-nav a {
+      margin: 0;
+      padding: 13px 22px;
+      color: var(--text-sub);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+      border-left: 2px solid transparent;
+    }
+
+    .dropdown-nav a:hover,
+    .dropdown-nav a.active {
+      color: var(--accent);
+      background-color: rgba(212, 175, 55, 0.06);
+      border-left-color: var(--accent);
+    }
+
+    .hero {
+      min-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 110px 24px 70px;
+      background-color: #000000;
+    }
+
+    .logo-video-wrap {
+      width: 100%;
+      max-width: 360px;
+      margin-bottom: 24px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 50px rgba(212, 175, 55, 0.08);
+    }
+
+    .logo-video-wrap video {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .hero-subtitle {
+      color: var(--accent);
+      font-size: 0.85rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.9rem, 4.5vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      max-width: 600px;
+      color: var(--text-sub);
+      font-size: 1.05rem;
+      margin-bottom: 34px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 30px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      transition: all 0.25s;
+    }
+
+    .btn:hover {
+      background-color: var(--accent);
+      color: #000000;
+      font-weight: 600;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .section-desc {
+      color: var(--text-sub);
+      margin-bottom: 48px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 32px;
+      border-radius: 6px;
+    }
+
+    .card-tag {
+      display: inline-block;
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 10px;
+      letter-spacing: 0.05em;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--text-sub);
+      font-size: 0.95rem;
+    }
+
+    /* Poster card link and image styles */
+    a.card {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      overflow: hidden;
+      padding: 0;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    a.card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent);
+    }
+
+    .card-thumb {
+      width: 100%;
+      aspect-ratio: 1 / 1.414;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .card-body {
+      padding: 24px 28px 28px;
+    }
+
+    .play-link {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 0.88rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .contact-box {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 48px 32px;
+      text-align: center;
+      border-radius: 6px;
+    }
+
+    .contact-box p {
+      color: var(--text-sub);
+      margin: 12px 0 28px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 24px;
+      text-align: center;
+      color: var(--text-sub);
+      font-size: 0.85rem;
+    }
+
+    .footer-logo {
+      display: block;
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      margin: 0 auto 20px;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-sub);
+      text-decoration: none;
+      font-size: 0.88rem;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      transition: all 0.25s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .social-links svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    @media (max-width: 600px) {
+      .logo-video-wrap {
+        max-width: 280px;
+      }
+      nav a {
+        margin-left: 14px;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo">LEVIN <span>PRODUCTION</span></a>
+      <div class="menu-wrapper">
+        <button class="hamburger-btn" id="menuBtn" aria-label="Open menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="dropdown-nav" id="dropdownNav">
+          <a href="#about">About</a>
+          <a href="#previous">Archive</a>
+          <a href="#upcoming">Upcoming</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div class="logo-video-wrap">
+        <video src="logo-motion.mp4" autoplay muted playsinline></video>
+      </div>
+      <div class="hero-subtitle">Classical Music Agency</div>
+      <h1>Levin Production</h1>
+      <p>Creating new resonances in classical music through profound artistic insight and refined stage curation.</p>
+      <a href="#previous" class="btn">Explore Projects</a>
+    </div>
+
+    <section id="about">
+      <h2 class="section-title">About Us</h2>
+      <p class="section-desc">We plan and produce stages where performers and audiences breathe together in complete harmony.</p>
+      <div class="grid">
+        <div class="card">
+          <div class="card-tag">CONCERT PLANNING</div>
+          <h3>Concert Planning & Production</h3>
+          <p>We oversee the entire production process—from concept development and repertoire curation to stage direction—for solo recitals, chamber music, and orchestral subscription concerts.</p>
+        </div>
+        <div class="card">
+          <div class="card-tag">ARTIST & EDUCATION</div>
+          <h3>Artist Management & Exchange</h3>
+          <p>We drive diverse music education and cultural initiatives, including collaborative projects with domestic and international artists as well as international youth orchestra exchange camps.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="previous">
+      <h2 class="section-title">Previous Concerts</h2>
+      <p class="section-desc">Live performance records and highlights presented by Levin Production.</p>
+      <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <div class="card-tag">ARCHIVE</div>
+          <h3>Past Performance Archive</h3>
+          <p style="margin-bottom: 18px;">Explore live performance recordings and archives from Levin Production's major concerts held at Kumho Art Hall Yonsei, Elim Art Center, Gimpo Art Hall, and more.</p>
+        </div>
+        <a href="archive.html" class="play-link" style="text-decoration: none; margin-top: 20px;">View Full Archive →</a>
+      </div>
+    </section>
+
+    <section id="upcoming">
+      <h2 class="section-title">Upcoming Concerts</h2>
+      <p class="section-desc">Discover upcoming stages from Levin Production featuring thoughtful programming and diverse ensembles.</p>
+      <div class="card" style="display: flex; flex-direction: column; justify-content: space-between; border-color: rgba(212, 175, 55, 0.35); background: linear-gradient(145deg, #16161d 0%, #0d0d11 100%);">
+        <div>
+          <div class="card-tag">UPCOMING PROJECTS · 2027</div>
+          <h3>Next Season Lineup</h3>
+          <ul style="list-style: none; padding: 0; margin: 18px 0 0; border-top: 1px solid var(--border);">
+            <li style="padding: 14px 0; border-bottom: 1px solid var(--border); font-size: 0.95rem; color: var(--text-main);">
+              <span style="color: var(--accent); font-weight: 600; margin-right: 8px;">MAR</span> Bach Complete Solo Violin Works in Gimpo
+              <span style="display: block; font-size: 0.85rem; color: var(--text-sub); margin-top: 4px;">The complete Sonatas and Partitas for Solo Violin by J.S. Bach experienced within the serene resonance of a cathedral</span>
+            </li>
+            <li style="padding: 14px 0; border-bottom: 1px solid var(--border); font-size: 0.95rem; color: var(--text-main);">
+              <span style="color: var(--accent); font-weight: 600; margin-right: 8px;">JUL</span> French Composers Trio Special
+              <span style="display: block; font-size: 0.85rem; color: var(--text-sub); margin-top: 4px;">A piano trio performance capturing the color and lyricism of French chamber music</span>
+            </li>
+            <li style="padding: 14px 0; border-bottom: 1px solid var(--border); font-size: 0.95rem; color: var(--text-main);">
+              <span style="color: var(--accent); font-weight: 600; margin-right: 8px;">AUG</span> Midsummer Duo Recital
+              <span style="display: block; font-size: 0.85rem; color: var(--text-sub); margin-top: 4px;">An intimate stage highlighting dense musical dialogue and ensemble chemistry between two performers</span>
+            </li>
+            <li style="padding: 14px 0 4px; font-size: 0.95rem; color: var(--text-main);">
+              <span style="color: var(--accent); font-weight: 600; margin-right: 8px;">NOV</span> Piano Solo Recital
+              <span style="display: block; font-size: 0.85rem; color: var(--text-sub); margin-top: 4px;">The essence of solo aesthetics and meticulous interpretation unfolded at the keyboard</span>
+            </li>
+          </ul>
+        </div>
+        <a href="contact.html" class="play-link" style="text-decoration: none; margin-top: 24px;">Inquire About Concert Updates & Tickets →</a>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-box">
+        <h2 class="section-title">Contact</h2>
+        <p>For inquiries regarding concert planning, artist bookings, or collaborations, please reach out via our contact form, email, or KakaoTalk Channel below.</p>
+        <a href="contact.html" class="btn">Go to Contact Page</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <img src="logo-simple-circle.png" alt="Levin Production Logo" class="footer-logo">
+
+    <div class="social-links">
+      <!-- Instagram Link -->
+      <a href="https://www.instagram.com/levin.production/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        <span>Instagram</span>
+      </a>
+
+      <!-- KakaoTalk Channel Link -->
+      <a href="http://pf.kakao.com/_YEkxbX" target="_blank" rel="noopener noreferrer" aria-label="KakaoTalk Channel">
+        <svg viewBox="0 0 24 24"><path d="M12 3c-5.52 0-10 3.58-10 8 0 2.86 1.88 5.37 4.71 6.78-.19.72-.7 2.62-.8 3.03-.13.5.18.49.38.36.16-.1 2.48-1.68 3.49-2.37.71.13 1.46.2 2.22.2 5.52 0 10-3.58 10-8s-4.48-8-10-8z"/></svg>
+        <span>KakaoTalk Channel</span>
+      </a>
+    </div>
+
+    <p>Levin Production | CEO Sieun Kwon | Business Registration No. 157-41-01351</p>
+    <p style="margin-top: 8px;">© 2026 Levin Production. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const dropdownNav = document.getElementById('dropdownNav');
+
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menuBtn.classList.toggle('active');
+      dropdownNav.classList.toggle('open');
+    });
+
+    dropdownNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuBtn.classList.remove('active');
+        dropdownNav.classList.remove('open');
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!menuBtn.contains(e.target) && !dropdownNav.contains(e.target)) {
+        menuBtn.classList.remove('active');
+        dropdownNav.classList.remove('open');
+      }
+    });
+  </script>
+</body>
+</html>
