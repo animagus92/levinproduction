@@ -62,6 +62,49 @@
     }
 
     /* 햄버거 버튼 및 드롭다운 메뉴 스타일 (데스크톱 & 모바일 공통) */
+    /* 언어 전환 링크 스타일 */
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--text-sub);
+    }
+
+    .lang-switcher a {
+      color: var(--text-sub);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      font-weight: 500;
+    }
+
+    .lang-switcher a:hover,
+    .lang-switcher a.active {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .lang-switcher span {
+      color: var(--border);
+      user-select: none;
+    }
+
+    @media (max-width: 480px) {
+      .header-right {
+        gap: 10px;
+      }
+      .lang-switcher {
+        gap: 5px;
+        font-size: 0.78rem;
+      }
+    }
+
     .menu-wrapper {
       position: relative;
     }
@@ -294,7 +337,15 @@
   <header>
     <div class="nav-container">
       <a href="index.html" class="logo">LEVIN <span>PRODUCTION</span></a>
-      <div class="menu-wrapper">
+      <div class="header-right">
+        <div class="lang-switcher" aria-label="Language selector">
+          <a href="archive.html" class="active">한국어</a>
+          <span>|</span>
+          <a href="archive-en.html">English</a>
+          <span>|</span>
+          <a href="archive-de.html">Deutsch</a>
+        </div>
+        <div class="menu-wrapper">
         <button class="hamburger-btn" id="menuBtn" aria-label="메뉴 열기">
           <span></span>
           <span></span>
@@ -305,6 +356,7 @@
           <a href="index.html#upcoming">다음공연</a>
           <a href="contact.html">문의</a>
         </nav>
+        </div>
       </div>
     </div>
   </header>
