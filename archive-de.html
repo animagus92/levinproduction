@@ -60,8 +60,6 @@
       color: var(--accent);
     }
 
-    /* Hamburger-Button und Dropdown-Menü-Stile (Desktop & Mobil) */
-    /* 언어 전환 링크 스타일 */
     .header-right {
       display: flex;
       align-items: center;
@@ -337,114 +335,28 @@
     <div class="nav-container">
       <a href="index-de.html" class="logo">LEVIN <span>PRODUCTION</span></a>
       <div class="header-right">
-        <div class="lang-switcher" aria-label="Language selector">
-          <a href="archive-de.html">한</a>
+        <div class="lang-switcher" aria-label="Sprachauswahl">
+          <a href="archive.html">한</a>
           <span>|</span>
           <a href="archive-en.html">EN</a>
           <span>|</span>
           <a href="archive-de.html" class="active">DE</a>
         </div>
         <div class="menu-wrapper">
-        <button class="hamburger-btn" id="menuBtn" aria-label="Menü öffnen">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <nav class="dropdown-nav" id="dropdownNav">
-          <a href="index-de.html#about">Über uns</a>
-          <a href="index-de.html#upcoming">Kommende Konzerte</a>
-          <a href="contact-de.html">Kontakt</a>
-        </nav>
+          <button class="hamburger-btn" id="menuBtn" aria-label="Menü öffnen">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <nav class="dropdown-nav" id="dropdownNav">
+            <a href="index-de.html#about">Über uns</a>
+            <a href="index-de.html#upcoming">Kommende Konzerte</a>
+            <a href="contact-de.html">Kontakt</a>
+          </nav>
         </div>
       </div>
     </div>
   </header>
 
   <main>
-    <span class="section-tag">ARCHIV</span>
-    <h1>Konzertarchiv</h1>
-    <p class="section-desc">Live-Konzertarchiv von Levin Production. Klicken Sie auf eine Karte, um die entsprechende YouTube-Playlist zu öffnen.</p>
-
-    <div class="archive-grid">
-      <!-- Karte 1 -->
-      <a href="https://www.youtube.com/playlist?list=PLPlv4k5_e2n8" target="_blank" rel="noopener noreferrer" class="card">
-        <img src="goodandevil.png" alt="Levin Sieun Kwon Violin-Rezital : Gut und Böse">
-        <div class="card-body">
-          <div class="card-meta">Sep. 2026 · Kumho Art Hall Yonsei</div>
-          <h2 class="card-title">Violin-Rezital: Gut und Böse</h2>
-          <p class="card-desc">Ein dramaturgisches Rezital mit Tartinis „Teufelstriller-Sonate“, Wieniawskis „Faust-Fantasie“ und Beethovens „Kreutzer-Sonate“.</p>
-          <span class="card-link">Live-Mitschnitt ansehen →</span>
-        </div>
-      </a>
-
-      <!-- Karte 2 -->
-      <a href="https://www.youtube.com/playlist?list=PLbQMhEmIHRpaK4O0UHCg97j_V2n1-T9QQ" target="_blank" rel="noopener noreferrer" class="card">
-        <img src="newlyspring.jpg" alt="Violin-Rezital : Auf ein Neues, Frühling">
-        <div class="card-body">
-          <div class="card-meta">März 2026 · Elim Art Center, Incheon</div>
-          <h2 class="card-title">Violin-Rezital: Auf ein Neues, Frühling</h2>
-          <p class="card-desc">Ein vielseitiges Kammermusik- und Soloprogramm zur Begrüßung des neuen Frühlings.</p>
-          <span class="card-link">Live-Mitschnitt ansehen →</span>
-        </div>
-      </a>
-
-      <!-- Karte 3 -->
-      <a href="https://www.youtube.com/playlist?list=PLbQMhEmIHRparYNZ3rs-fv3fO66Vefbzg" target="_blank" rel="noopener noreferrer" class="card">
-        <img src="ruleandfantasy.jpg" alt="Levin Sieun Kwon Violin-Rezital : Regel und Fantasie">
-        <div class="card-body">
-          <div class="card-meta">Juli 2025 · Gimpo Art Hall</div>
-          <h2 class="card-title">Violin-Rezital: Regel und Fantasie</h2>
-          <p class="card-desc">Ein Konzertabend, der klassische Formvollendung und romantische Fantasie in Werken von Beethoven, Brahms, Chausson und Hubay erkundet.</p>
-          <span class="card-link">Live-Mitschnitt ansehen →</span>
-        </div>
-      </a>
-    </div>
-  </main>
-
-  <footer>
-    <img src="logo-simple-circle.png" alt="Levin Production Logo" class="footer-logo">
-
-    <div class="social-links">
-      <!-- Instagram-Link -->
-      <a href="https://www.instagram.com/levin.production/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-        <span>Instagram</span>
-      </a>
-
-      <!-- KakaoTalk-Kanal-Link -->
-      <a href="http://pf.kakao.com/_YEkxbX" target="_blank" rel="noopener noreferrer" aria-label="KakaoTalk-Kanal">
-        <svg viewBox="0 0 24 24"><path d="M12 3c-5.52 0-10 3.58-10 8 0 2.86 1.88 5.37 4.71 6.78-.19.72-.7 2.62-.8 3.03-.13.5.18.49.38.36.16-.1 2.48-1.68 3.49-2.37.71.13 1.46.2 2.22.2 5.52 0 10-3.58 10-8s-4.48-8-10-8z"/></svg>
-        <span>KakaoTalk-Kanal</span>
-      </a>
-    </div>
-
-    <p>Levin Production | Inhaberin Sieun Kwon | Handelsregisternummer 157-41-01351</p>
-    <p style="margin-top: 8px;">© 2026 Levin Production. Alle Rechte vorbehalten.</p>
-  </footer>
-
-  <script>
-    const menuBtn = document.getElementById('menuBtn');
-    const dropdownNav = document.getElementById('dropdownNav');
-
-    menuBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      menuBtn.classList.toggle('active');
-      dropdownNav.classList.toggle('open');
-    });
-
-    dropdownNav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        menuBtn.classList.remove('active');
-        dropdownNav.classList.remove('open');
-      });
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!menuBtn.contains(e.target) && !dropdownNav.contains(e.target)) {
-        menuBtn.classList.remove('active');
-        dropdownNav.classList.remove('open');
-      }
-    });
-  </script>
-</body>
-</html>
+    <span
